@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: master
+  application:
+    name: spring_cloud_eureka
+
+---
+spring:
+  profiles: master
+server:
+  port:  8761
+eureka:
+  instance:
+    hostname: master
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://master:8761/eureka/
+  server:
+    enable-self-preservation: true
